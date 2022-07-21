@@ -24,6 +24,21 @@ nav {
 
 ul {
     margin: 0;
-    padding: 0;
+    padding: 10px;
 }
+
+li {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+li > * {
+    text-decoration: none;
+}
+
+li > *:visited {
+    color: unset;
+}
+
 </style>
