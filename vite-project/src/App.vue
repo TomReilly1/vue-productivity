@@ -1,31 +1,25 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import TheNavbar from "./components/TheNavbar.vue"
+import TheHeader from "./components/TheHeader.vue"
+import TheFooter from "./components/TheFooter.vue"
 </script>
-
+<!------------------------------------------------->
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+    <TheNavbar />
+    <div>
+        <TheHeader />
+        <router-view/>
+        <TheFooter />
+    </div>
 </template>
-
+<!------------------------------------------------->
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+    /* body :deep(nav) {
+        height: 20rem;
+        background-color: aqua;
+    } */
+    div {
+        padding: 0 20px;
+        width: 100%;
+    }
 </style>
