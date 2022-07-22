@@ -12,7 +12,7 @@
             </li>
             <li>
                 <!-- <router-link to="/kanban">Kanban</router-link> -->
-                <router-link :to="{ name: 'ProjectKanban', params: { project: 'kanban' }}">
+                <router-link :to="{ name: 'Project', params: { project: 'kanban' }}">
                     Kanban
                 </router-link>
             </li>

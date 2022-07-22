@@ -8,8 +8,8 @@ const routes = [
     component: () => import('../views/HomeView.vue')
   },
   {
-    path: '/kanban',
-    name: 'Kanban',
+    path: '/project/:project',
+    name: 'ProjectKanban',
     component: () => import('../views/KanbanView.vue')
   }
 ]
