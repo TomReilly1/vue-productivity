@@ -1,9 +1,22 @@
 :root {
     --black1: #242424;
+    --black2: #333333;
     --gray1: #dadada;
+    --carbon1: #5e6c7e;
     --red1: #ffacac;
     --yellow1: #fff098;
+    --gold1: #ffdc21;
     --green1: #a9ff8f;
+    --purple1: #a4aeff;
+
+    --popper-theme-background-color: #333333;
+    --popper-theme-background-color-hover: #333333;
+    --popper-theme-text-color: #ffffff;
+    --popper-theme-border-width: 0px;
+    --popper-theme-border-style: solid;
+    --popper-theme-border-radius: 6px;
+    --popper-theme-padding: 32px;
+    --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
 
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -22,7 +35,8 @@
 }
 
 html {
-    height: 100vh;
+    /* height: 100vh; */
+    min-height: 100vh;
 }
 
 body, #app {
