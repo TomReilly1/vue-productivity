@@ -9,7 +9,7 @@ const routes = [
   },
   {
     path: '/project/:project',
-    name: 'ProjectKanban',
+    name: 'Project',
     component: () => import('../views/KanbanView.vue')
   }
 ]

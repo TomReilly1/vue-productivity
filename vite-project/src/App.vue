@@ -6,7 +6,7 @@ import TheFooter from "./components/TheFooter.vue"
 <!------------------------------------------------->
 <template>
     <TheNavbar />
-    <div>
+    <div id="content">
         <TheHeader />
         <router-view/>
         <TheFooter />
@@ -14,12 +14,26 @@ import TheFooter from "./components/TheFooter.vue"
 </template>
 <!------------------------------------------------->
 <style scoped>
-    /* body :deep(nav) {
-        height: 20rem;
-        background-color: aqua;
-    } */
-    div {
-        padding: 0 20px;
-        width: 100%;
-    }
+:deep(a) {
+    color: unset;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+:deep(a):visited {
+    color: unset;
+}
+
+:deep(a):hover {
+    color: var(--purple1);
+}
+
+#content {
+    padding: 0;
+    width: calc(100% - 150px);
+}
+
+:deep(main) {
+    min-height: calc(100% - 150px);
+}
 </style>

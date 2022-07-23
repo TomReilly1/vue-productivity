@@ -15,11 +15,8 @@
 footer {
     display: flex;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
-    width: calc(100% - 150px);
-    height: 5rem;
+    align-items: center;
+    width: 100%;
+    height: 100px;
 }
-
-
 </style>
