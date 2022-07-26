@@ -61,6 +61,7 @@ watch(() => props.screenOutput, () => {
     background-color: var(--green1);
     color: var(--black1);
     font-size: 2rem;
+    font-weight: 500;
     font-family: monospace;
     padding: 0 3px;
 }

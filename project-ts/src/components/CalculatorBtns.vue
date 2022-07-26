@@ -2,12 +2,6 @@
 import { ref, watch } from "vue";
 
 
-// const inputString = '5+65/4-34*3'
-// const splits = inputString.split(/([*+-/])/)
-
-// console.log(splits)
-
-
 // PROPS
 const props = defineProps(['computedValue'])
 
@@ -86,7 +80,7 @@ function sendExpression() {
     <button class="row-three btn-num" @click="addToExpression('5')">5</button>
     <button class="row-three btn-num" @click="addToExpression('6')">6</button>
     <button class="row-three btn-opr" @click="addToExpression('-')">-</button>
-
+    <!-- \u2014  &mdash; -->
     <button class="row-four btn-num" @click="addToExpression('1')">1</button>
     <button class="row-four btn-num" @click="addToExpression('2')">2</button>
     <button class="row-four btn-num" @click="addToExpression('3')">3</button>

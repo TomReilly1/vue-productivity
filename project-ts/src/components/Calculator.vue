@@ -12,10 +12,10 @@ function addToScreenOutput(txt: string) {
 
 function calculateForScreenOutput(txt: string) {
     console.log('calculateForScreenOutput() reached')
-    //screenOutput.value = txt
 
     console.log(txt)
     const splits = txt.split(/([+\-*/])/)
+    const splitsCopy = txt.split(/([+\-*/])/)
     console.log(splits)
 
 
@@ -27,6 +27,34 @@ function calculateForScreenOutput(txt: string) {
     } catch (error) {
         console.error(error)
         return
+    }
+
+    for (let i of splitsCopy) {
+        if (i === '') {
+            console.error(
+                'There was an empty string.\n' +
+                'This is likely because operators were used out of place.\n' +
+                'Example: "5+*6" or "24-2++6" or "45*8-5+" or "*17+5/6"'
+            )
+            screenOutput.value = 'ERROR'
+            return
+        }
+
+        if (i === '*' || i === '/') {
+            console.log('Before:', splits)
+            const tempExpr: string[] = splits.splice(splits.indexOf(i)-1 , splits.length)
+            console.log('After:', splits)
+            console.log(tempExpr)
+            let tempTotal: number;
+            if (i === '*') {
+                tempTotal = Number(tempExpr[0]) * Number(tempExpr[2])
+            } else if (i === '/') {
+                tempTotal = Number(tempExpr[0]) / Number(tempExpr[2])
+            } else {
+                throw 'Not "*" or "/"'
+            }
+            splits.push(tempTotal.toString())
+        }
     }
 
     for (let i of splits) {
@@ -43,7 +71,7 @@ function calculateForScreenOutput(txt: string) {
         // opr
         if (splits.indexOf(i) % 2 === 1) {
             console.log(i, ' ==> it is an opr')
-            if (/[*+-/]/) {
+            if (i === '+' || i === '-') {
                 if (splits.indexOf(i) === splits.length - 1) {
                     console.error(
                         'Operators used incorrectly\n' +
@@ -66,13 +94,6 @@ function calculateForScreenOutput(txt: string) {
         else {
             console.log(i, ' ==> it is a num')
             let currNum: number = Number(i)
-            // try {
-            //     currNum = Number(i)
-            // } catch (error) {
-            //     console.error(error)
-            //     return
-            // }
-
             // first num
             if (splits.indexOf(i) === 0) {
                 continue
