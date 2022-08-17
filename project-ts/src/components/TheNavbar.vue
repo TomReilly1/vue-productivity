@@ -16,6 +16,11 @@
                 </router-link>
             </li>
             <li>
+                <router-link :to="{ name: 'Notes'}">
+                    Notes
+                </router-link>
+            </li>
+            <li>
                 <router-link :to="{ name: 'Calculator'}">
                     Calculator
                 </router-link>

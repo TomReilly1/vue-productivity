@@ -15,6 +15,11 @@ const router = createRouter({
             component: () => import('../views/KanbanView.vue')
         },
         {
+            path: '/project/notes',
+            name: 'Notes',
+            component: () => import('../views/NotesView.vue')
+        },
+        {
             path: '/project/calculator',
             name: 'Calculator',
             component: () => import('../views/CalculatorView.vue')
