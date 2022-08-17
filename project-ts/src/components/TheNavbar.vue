@@ -7,7 +7,7 @@
         <ul>
             <li>
                 <h2>
-                    <router-link to="/">Tom's Portfolio</router-link>
+                    <router-link to="/">Tom's Productivity</router-link>
                 </h2>
             </li>
             <li>
