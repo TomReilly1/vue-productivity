@@ -11,6 +11,9 @@
                 </h2>
             </li>
             <li>
+                <a href="https://mb2hub.com">MB2 Hub (external)</a>
+            </li>
+            <li>
                 <router-link :to="{ name: 'Kanban'}">
                     Kanban
                 </router-link>
