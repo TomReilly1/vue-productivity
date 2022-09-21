@@ -3,19 +3,21 @@ import { ref } from "vue";
 
 // PROPS
 const props = defineProps<{
-    noteText: string | null
+    noteText: string | null,
+    isNoteNew: boolean
 }>()
 
 // EMITS
 const emit = defineEmits<{
     (e: 'add', textValue: string): void
     (e: 'delete', textValue: string): void
-    (e: 'update', textValue: string): void
+    (e: 'update', textValue: string, textToReplace: string): void
 }>()
 // const emit = defineEmits(['add'])
 
 // REFS
 const cardText = ref<string | null>(props.noteText)
+// const isNewNote = ref<boolean>(false)
 const isBeingEdited = ref<boolean>(false)
 // const cardNew = ref<boolean>(false)
 // const cardInProg = ref<boolean>(false)
@@ -25,7 +27,21 @@ const isBeingEdited = ref<boolean>(false)
 // FUNCTIONS
 function editNote() {
     console.log('editNote() reached')
-    cardText.value = ""
+    
+    if (props.isNoteNew) {
+        cardText.value = ""
+    } else {
+        const noteTextArea: HTMLElement | null = document.getElementById('note-text')
+        
+        if (!(noteTextArea instanceof HTMLTextAreaElement)) {
+            throw Error('not a textarea element')
+        } else if (cardText.value === null) {
+            throw Error("cardtext.value should not be null if card is not new")
+        } else {
+            noteTextArea.value = cardText.value
+        }
+    }
+
     isBeingEdited.value = true
 }
 
@@ -58,6 +74,7 @@ function submitNote() {
             isBeingEdited.value = false
             console.log(`emit the cardText value ==> ${cardText.value}`)
             emit('add', cardText.value)
+            cardText.value = null
         }
     }
 
@@ -65,13 +82,21 @@ function submitNote() {
 
 function discardNote() {
     console.log('discardNote() reached')
+    if (cardText.value === '') {
+        console.log('note is empty discardNote()')
+    } else if (cardText.value === null) {
+        console.log('note is null discardNote()')
+    } else {
+        emit('delete', cardText.value)
+    }
+
     cardText.value = null
 }
 
 </script>
 <!------------------------------------------------->
 <template>
-    <div v-if="cardText === null" class="card empty" @click="editNote()">
+    <div v-if="props.isNoteNew && cardText === null" class="card empty" @click="editNote()">
         <span>Add Note</span>
         <span>+</span>
     </div>
