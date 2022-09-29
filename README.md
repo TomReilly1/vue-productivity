@@ -20,7 +20,7 @@ Here are the technologies I used to power this project:
 - Applications
   - [x] kanban
   - [x] calculator
-  - [ ] notes
+  - [x] notes
   - [ ] pomadoro timer
 
 
