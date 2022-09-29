@@ -6,17 +6,6 @@
 <main>
     <section>
         <div>
-            <p>
-                Hello, and welcome to my portfolio website!
-                <br>
-                <br>
-                This is where most of my projects can be seen and used live! If you would like to check out the source code for each project, check out my
-                <a href="https://github.com/TomReilly1">github</a>.
-                <br>
-                <br>
-            </p>
-        </div>
-        <div>
             <h3>About Me</h3>
             <img src="../assets/portrait.webp" alt="profile picture of Thomas Reilly">
             <p>

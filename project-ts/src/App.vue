@@ -33,7 +33,7 @@ import TheFooter from "./components/TheFooter.vue"
     width: calc(100% - 150px);
 }
 
-:deep(main) {
+/* :deep(main) {
     min-height: calc(100% - 150px);
-}
+} */
 </style>

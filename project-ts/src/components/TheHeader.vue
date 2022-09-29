@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue";
-import { useRoute } from 'vue-router'
+import { useRoute, type RouteRecordName } from 'vue-router'
 
 
 const route = useRoute()
@@ -16,13 +16,17 @@ function capitalizeWord(header: string) {
 
 
 watch(route, () => {
-    const routeName: string = <string>route.name
+    const routeName: RouteRecordName | null | undefined = route.name
 
-    if (!routeName) {
-        console.error('Page not found!')
+    if (routeName === null || routeName === undefined) {
+        console.error('Page not found: route is null or undefined')
     } else {
-        header.value = routeName
-        console.log(typeof routeName)
+        if (typeof routeName === "symbol") {
+            console.error('Page not found: route is a symbol')
+        } else {
+            header.value = routeName
+            console.log(typeof routeName)
+        }
     }
 })
 </script>
